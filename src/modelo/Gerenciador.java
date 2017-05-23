@@ -16,7 +16,7 @@ public class Gerenciador {
 	}
 
 	public void cadastrarFuncionario() {
-		funcionarios.add(new Funcionario());
+//		funcionarios.add(new Funcionario());
 	}
 
 	public int obterQuantidadeDeFuncionarios() {
