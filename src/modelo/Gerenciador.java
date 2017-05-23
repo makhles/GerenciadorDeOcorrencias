@@ -8,9 +8,11 @@ import excecoes.ExcecaoFuncionarioComIdJaCadastrado;
 public class Gerenciador {
 
 	private List<Funcionario> funcionarios;
+	private List<Ocorrencia> ocorrencias;
 
 	public Gerenciador() {
 		funcionarios = new ArrayList<Funcionario>();
+		ocorrencias = new ArrayList<Ocorrencia>();
 	}
 
 	public List<Funcionario> obterFuncionarios() {
@@ -23,5 +25,13 @@ public class Gerenciador {
 		} else {
 			funcionarios.add(funcionario);
 		}
+	}
+
+	public List<Ocorrencia> obterOcorrencias() {
+		return ocorrencias;
+	}
+
+	public void cadastrarOcorrencia(Ocorrencia ocorrencia) {
+		ocorrencias.add(ocorrencia);
 	}
 }
