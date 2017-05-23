@@ -15,10 +15,8 @@ public class TesteFuncionario {
 
 	@Test
 	public void testarIgualdade() throws Exception {
-		Funcionario bob1 = new Funcionario(1, "Bob");
-		Funcionario bob2 = new Funcionario(1, "Bob");
+		Funcionario bob = new Funcionario(1, "Bob");
 		Funcionario alice = new Funcionario(1, "Alice");
-		assertEquals(bob1, bob2);
-		assertEquals(bob1, alice);
+		assertEquals(bob, alice);
 	}
 }
