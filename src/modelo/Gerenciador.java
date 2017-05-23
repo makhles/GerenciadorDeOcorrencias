@@ -3,17 +3,19 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-import excecoes.ExcecaoOcorrenciaComIdJaCadastrada;
 import excecoes.ExcecaoFuncionarioComIdJaCadastrado;
+import excecoes.ExcecaoOcorrenciaComIdJaCadastrada;
 
 public class Gerenciador {
 
 	private List<Funcionario> funcionarios;
 	private List<Ocorrencia> ocorrencias;
+	private List<Projeto> projetos;
 
 	public Gerenciador() {
 		funcionarios = new ArrayList<Funcionario>();
 		ocorrencias = new ArrayList<Ocorrencia>();
+		projetos = new ArrayList<Projeto>();
 	}
 
 	public List<Funcionario> obterFuncionarios() {
@@ -38,5 +40,13 @@ public class Gerenciador {
 		} else {
 			ocorrencias.add(ocorrencia);
 		}
+	}
+
+	public List<Projeto> obterProjetos() {
+		return projetos;
+	}
+
+	public void cadastrarProjeto(Projeto projeto) {
+		projetos.add(projeto);
 	}
 }
