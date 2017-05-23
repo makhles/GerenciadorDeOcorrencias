@@ -7,10 +7,17 @@ public class Ocorrencia {
 
 	private Prioridade prioridade;
 	private TipoOcorrencia tipo;
+	private boolean aberta;
+	private Funcionario responsavel;
+	private String resumo;
 
-	public Ocorrencia(TipoOcorrencia tipo, Prioridade prioridade) {
+	public Ocorrencia(Funcionario responsavel, TipoOcorrencia tipo,
+			Prioridade prioridade, String resumo) {
+		this.responsavel = responsavel;
 		this.tipo = tipo;
 		this.prioridade = prioridade;
+		this.resumo = resumo;
+		aberta = true;
 	}
 
 	public Prioridade getPrioridade() {
@@ -19,6 +26,18 @@ public class Ocorrencia {
 
 	public TipoOcorrencia getTipo() {
 		return tipo;
+	}
+
+	public boolean estaAberta() {
+		return aberta;
+	}
+
+	public Funcionario getResponsavel() {
+		return responsavel;
+	}
+
+	public String getResumo() {
+		return resumo;
 	}
 
 }
