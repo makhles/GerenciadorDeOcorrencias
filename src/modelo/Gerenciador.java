@@ -24,9 +24,4 @@ public class Gerenciador {
 			funcionarios.add(funcionario);
 		}
 	}
-
-	public int obterQuantidadeDeFuncionarios() {
-		return funcionarios.size();
-	}
-
 }
