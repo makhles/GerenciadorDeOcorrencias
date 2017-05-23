@@ -22,7 +22,7 @@ public class TesteOcorrencia {
 	@Before
 	public void init() {
 		bob = new Funcionario(1, "Bob");
-		ocorrencia = new Ocorrencia(bob, TipoOcorrencia.BUG, Prioridade.ALTA, RESUMO);
+		ocorrencia = new Ocorrencia(1, bob, TipoOcorrencia.BUG, Prioridade.ALTA, RESUMO);
 	}
 
 	@Test
@@ -32,6 +32,12 @@ public class TesteOcorrencia {
 		assertEquals(Prioridade.ALTA, ocorrencia.getPrioridade());
 		assertEquals(RESUMO, ocorrencia.getResumo());
 		assertTrue(ocorrencia.estaAberta());
+	}
+
+	@Test
+	public void testeCriarOcorrenciasDeMesmoId() throws Exception {
+		Ocorrencia anotherBug = new Ocorrencia(1, bob, TipoOcorrencia.BUG, Prioridade.ALTA, RESUMO);
+		assertEquals(anotherBug, ocorrencia);
 	}
 
 	@Test
