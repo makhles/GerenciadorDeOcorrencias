@@ -3,6 +3,8 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import excecoes.ExcecaoFuncionarioComIdJaCadastrado;
+
 public class Gerenciador {
 
 	private List<Funcionario> funcionarios;
@@ -12,11 +14,15 @@ public class Gerenciador {
 	}
 
 	public List<Funcionario> obterFuncionarios() {
-		return new ArrayList<Funcionario>();
+		return funcionarios;
 	}
 
-	public void cadastrarFuncionario() {
-//		funcionarios.add(new Funcionario());
+	public void cadastrarFuncionario(Funcionario funcionario) {
+		if (funcionarios.contains(funcionario)) {
+			throw new ExcecaoFuncionarioComIdJaCadastrado();
+		} else {
+			funcionarios.add(funcionario);
+		}
 	}
 
 	public int obterQuantidadeDeFuncionarios() {
