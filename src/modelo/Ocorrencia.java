@@ -1,5 +1,6 @@
 package modelo;
 
+import excecoes.ExcecaoMudancaResponsavelComOcorrenciaFechada;
 import modelo.enums.Prioridade;
 import modelo.enums.TipoOcorrencia;
 
@@ -38,6 +39,26 @@ public class Ocorrencia {
 
 	public String getResumo() {
 		return resumo;
+	}
+
+	public void mudarResponsavel(Funcionario novoResponsavel) {
+		if (estaAberta()) {
+			responsavel = novoResponsavel;
+		} else {
+			throw new ExcecaoMudancaResponsavelComOcorrenciaFechada();
+		}
+	}
+
+	public void mudarPrioridade(Prioridade novaPrioridade) {
+		if (estaAberta()) {
+			prioridade = novaPrioridade;
+		} else {
+			throw new excecoes.ExcecaoMudancaPrioridadeComOcorrenciaFechada();
+		}
+	}
+
+	public void fecharOcorrencia() {
+		aberta = false;
 	}
 
 }
