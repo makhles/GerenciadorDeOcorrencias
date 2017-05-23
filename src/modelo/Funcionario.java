@@ -13,7 +13,7 @@ public class Funcionario {
 
 	@Override
 	public String toString() {
-		return nome;
+		return String.format("%s (%d)", nome, id);
 	}
 
 	/* (non-Javadoc)
