@@ -29,4 +29,11 @@ public class TesteCadastroDeProjeto {
 		assertEquals(1, gerenciador.obterProjetos().size());
 		assertEquals(manhattan, gerenciador.obterProjetos().get(0));
 	}
+
+	@Test
+	public void testeObterProjetoComId() throws Exception {
+		Projeto manhattan = new Projeto(1, "Manhattan");
+		gerenciador.cadastrarProjeto(manhattan);
+		assertEquals(manhattan, gerenciador.obterProjetoComId(1));
+	}
 }

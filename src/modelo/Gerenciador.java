@@ -5,16 +5,15 @@ import java.util.List;
 
 import excecoes.ExcecaoFuncionarioComIdJaCadastrado;
 import excecoes.ExcecaoOcorrenciaComIdJaCadastrada;
+import excecoes.ExcecaoProjetoNaoCadastrado;
 
 public class Gerenciador {
 
 	private List<Funcionario> funcionarios;
-	private List<Ocorrencia> ocorrencias;
 	private List<Projeto> projetos;
 
 	public Gerenciador() {
 		funcionarios = new ArrayList<Funcionario>();
-		ocorrencias = new ArrayList<Ocorrencia>();
 		projetos = new ArrayList<Projeto>();
 	}
 
@@ -30,15 +29,17 @@ public class Gerenciador {
 		}
 	}
 
-	public List<Ocorrencia> obterOcorrencias() {
-		return ocorrencias;
-	}
-
-	public void cadastrarOcorrencia(Ocorrencia ocorrencia) {
-		if (ocorrencias.contains(ocorrencia)) {
-			throw new ExcecaoOcorrenciaComIdJaCadastrada();
+	public void cadastrarOcorrencia(Ocorrencia ocorrencia, Projeto projeto) {
+		Projeto p = obterProjetoComId(projeto.getId());
+		if (p != null) {
+			List<Ocorrencia> ocorrencias = p.obterOcorrencias();
+			if (ocorrencias.contains(ocorrencia)) {
+				throw new ExcecaoOcorrenciaComIdJaCadastrada();
+			} else {
+				p.cadastrarOcorrencia(ocorrencia);
+			}
 		} else {
-			ocorrencias.add(ocorrencia);
+			throw new ExcecaoProjetoNaoCadastrado();
 		}
 	}
 
@@ -48,5 +49,15 @@ public class Gerenciador {
 
 	public void cadastrarProjeto(Projeto projeto) {
 		projetos.add(projeto);
+	}
+
+	public Projeto obterProjetoComId(int id) {
+		Projeto projeto = null;
+		for (Projeto p : projetos) {
+			if (p.getId() == id) {
+				projeto = p;
+			}
+		}
+		return projeto;
 	}
 }

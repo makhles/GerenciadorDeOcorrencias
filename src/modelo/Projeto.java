@@ -1,17 +1,30 @@
 package modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Projeto {
 
-	private String nome;
 	private int id;
+	private String nome;
+	private List<Ocorrencia> ocorrencias;
 
 	public Projeto(int id, String nome) {
 		this.id = id;
 		this.nome = nome;
+		ocorrencias = new ArrayList<Ocorrencia>();
+	}
+	
+	public void cadastrarOcorrencia(Ocorrencia ocorrencia) {
+		ocorrencias.add(ocorrencia);
 	}
 
 	public String obterNome() {
 		return nome;
+	}
+
+	public List<Ocorrencia> obterOcorrencias() {
+		return ocorrencias;
 	}
 
 	@Override
@@ -38,6 +51,10 @@ public class Projeto {
 			return false;
 		}
 		return true;
+	}
+
+	public int getId() {
+		return id;
 	}
 
 }
