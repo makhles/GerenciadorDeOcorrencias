@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import excecoes.ExcecaoFuncionarioComIdJaCadastrado;
-import excecoes.ExcecaoOcorrenciaComIdJaCadastrada;
 import excecoes.ExcecaoProjetoNaoCadastrado;
 
 public class Gerenciador {
@@ -32,12 +31,7 @@ public class Gerenciador {
 	public void cadastrarOcorrencia(Ocorrencia ocorrencia, Projeto projeto) {
 		Projeto p = obterProjetoComId(projeto.getId());
 		if (p != null) {
-			List<Ocorrencia> ocorrencias = p.obterOcorrencias();
-			if (ocorrencias.contains(ocorrencia)) {
-				throw new ExcecaoOcorrenciaComIdJaCadastrada();
-			} else {
-				p.cadastrarOcorrencia(ocorrencia);
-			}
+			p.cadastrarOcorrencia(ocorrencia);
 		} else {
 			throw new ExcecaoProjetoNaoCadastrado();
 		}

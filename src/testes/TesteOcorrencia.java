@@ -50,7 +50,7 @@ public class TesteOcorrencia {
 
 	@Test
 	public void testeMudarPrioridadeComOcorrenciaAberta() throws Exception {
-		assertEquals(bob, ocorrencia.getResponsavel());
+		assertEquals(Prioridade.ALTA, ocorrencia.getPrioridade());
 		ocorrencia.mudarPrioridade(Prioridade.BAIXA);
 		assertEquals(Prioridade.BAIXA, ocorrencia.getPrioridade());
 	}
@@ -71,7 +71,7 @@ public class TesteOcorrencia {
 
 	@Test(expected = ExcecaoMudancaPrioridadeComOcorrenciaFechada.class)
 	public void testeMudarPrioridadeComOcorrenciaFechada() throws Exception {
-		assertEquals(bob, ocorrencia.getResponsavel());
+		assertEquals(Prioridade.ALTA, ocorrencia.getPrioridade());
 		ocorrencia.fecharOcorrencia();
 		ocorrencia.mudarPrioridade(Prioridade.BAIXA);
 	}

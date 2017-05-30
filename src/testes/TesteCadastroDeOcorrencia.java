@@ -57,9 +57,7 @@ public class TesteCadastroDeOcorrencia {
 		final String RESUMO = "TL;DR";
 		Funcionario bob = new Funcionario(1, "Bob");
 		Ocorrencia superBug = new Ocorrencia(1, bob, TipoOcorrencia.BUG, Prioridade.ALTA, RESUMO);
-		Ocorrencia minorBug = new Ocorrencia(1, bob, TipoOcorrencia.BUG, Prioridade.BAIXA, RESUMO);
 		Projeto newOrder = new Projeto(2, "NewOrder");
 		gerenciador.cadastrarOcorrencia(superBug, newOrder);
-		gerenciador.cadastrarOcorrencia(minorBug, newOrder);
 	}
 }

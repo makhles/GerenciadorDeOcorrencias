@@ -3,6 +3,8 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import excecoes.ExcecaoOcorrenciaComIdJaCadastrada;
+
 public class Projeto {
 
 	private int id;
@@ -16,7 +18,11 @@ public class Projeto {
 	}
 	
 	public void cadastrarOcorrencia(Ocorrencia ocorrencia) {
-		ocorrencias.add(ocorrencia);
+		if (ocorrencias.contains(ocorrencia)) {
+			throw new ExcecaoOcorrenciaComIdJaCadastrada();
+		} else {
+			ocorrencias.add(ocorrencia);
+		}
 	}
 
 	public String obterNome() {
