@@ -1,6 +1,6 @@
 package testes;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 import org.junit.Test;
 
@@ -9,6 +9,6 @@ public class TesteExemplo {
 
 	@Test
 	public void teste() throws Exception {
-		assertTrue(true);
+		assertFalse(false);
 	}
 }
